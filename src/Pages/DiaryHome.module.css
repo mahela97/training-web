@@ -1,0 +1,40 @@
+input{
+    outline:none;
+    border: 0px ;
+    border-radius: 20px;
+    height: 30px;
+    padding-left: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #b3d4fc;
+}
+
+textarea{
+    outline: none;
+    border: 0px ;
+    resize: none;
+    border-radius: 20px;
+    background-color: #b3d4fc;
+    padding: 10px 0px 0px 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button{
+    border-radius: 20px;
+    background-color: #7db6fc;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40px; 
+    cursor: pointer;
+}
+
+.button:hover{
+ 
+    background-color: #3690fd;
+   
+}
+
