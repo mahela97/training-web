@@ -1,6 +1,7 @@
 .container{
     padding: 1rem;
     border-radius: 20px;
+    margin: 10px;
 }
 
 .title{
@@ -18,4 +19,5 @@
 
 .showMore{
     font-weight: bold;
+    margin-top: 20px;
 }
