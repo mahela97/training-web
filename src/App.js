@@ -1,4 +1,4 @@
-import DiaryCard from './Components/DiaryCard';
+import DiaryCard from './components/DiaryCard';
 import './App.css'
 import DiaryHome from './Pages/DiaryHome';
 
