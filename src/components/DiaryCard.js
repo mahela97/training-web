@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import styles from './DiaryCard.module.css';
+import PropTypes from 'prop-types';
 
 function DiaryCard({title,subtitle,description,bgColor}) {
 
@@ -41,5 +42,12 @@ function DiaryCard({title,subtitle,description,bgColor}) {
         </div>
     )
 }
+
+DiaryCard.propTypes = {
+    title: PropTypes.string,
+    subtitle:PropTypes.string,
+    description:PropTypes.string,
+    bgColor:PropTypes.string
+  };
 
 export default DiaryCard
