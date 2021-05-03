@@ -28,9 +28,9 @@ function DiaryHome() {
 
     return (
         <div>
-            <div>
+            <h1>
                 HOME
-            </div>
+            </h1>
 
             <div style={{"marginTop":"10px"}} >
                 <input value={title} onChange={(e)=>{setTitle(e.target.value)}} placeholder="Submit New"></input>
@@ -42,7 +42,7 @@ function DiaryHome() {
 
             <div style={{"marginTop":"10px"}} onClick={submit} className={styles.button}>
                 <div>
-                    SUBMIT
+                    <h3>SUBMIT</h3>
                 </div>
             </div> 
 

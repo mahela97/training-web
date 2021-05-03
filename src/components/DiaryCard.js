@@ -8,7 +8,7 @@ function DiaryCard({title,subtitle,description,bgColor}) {
 
     const getDescription=()=>{
         if(description.length>10 && !showMore){
-            var smallDescription=description.substring(0,3);
+            let smallDescription=description.substring(0,3);
             return(
                 <div>{smallDescription} ...</div>
             )
