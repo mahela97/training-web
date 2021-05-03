@@ -1,4 +1,3 @@
-import DiaryCard from './Components/DiaryCard';
 import './App.css'
 import DiaryHome from './Pages/DiaryHome';
 

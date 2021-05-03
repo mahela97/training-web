@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import DiaryCard from '../Components/DiaryCard';
+import DiaryCard from '../components/DiaryCard';
 import styles from './DiaryHome.module.css';
 
 function DiaryHome() {
@@ -48,10 +48,10 @@ function DiaryHome() {
 
             <div>
                 <div className={styles.cardContainer}>
-                    {cards.map(card=>{
+                    {cards.map((card,index)=>{
                         return(
-                            <div className={styles.item}>
-                                <DiaryCard title={card.title} subtitle="Kasun" description={card.description} bgColor="#b3e9fe"/>
+                            <div key={index} className={styles.item}>
+                                <DiaryCard  title={card.title} subtitle="Kasun" description={card.description} bgColor="#b3e9fe"/>
                             </div>
                         )
                     })}
