@@ -21,7 +21,7 @@ function DiaryHome(props) {
         }
 
         else{
-            props.addCard([{"title":title,"description":description},...props.cards])
+            props.addCard({"title":title,"description":description})
             setTitle("")
             setDescription("")
         }
@@ -65,9 +65,10 @@ function DiaryHome(props) {
 }
 
 DiaryHome.propTypes = {
-    cards:PropTypes.object,
+    cards:PropTypes.array,
     addCard:PropTypes.func
-  };
+};
+
 
 const mapStateToProps = state => {
     return {

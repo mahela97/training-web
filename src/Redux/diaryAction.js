@@ -1,4 +1,4 @@
-import {ADD_CARD}  from "./diaryTypes"
+import {ADD_CARD}  from "./diaryType"
 
 export const addCard = (cardDetails)=>{
     return {
