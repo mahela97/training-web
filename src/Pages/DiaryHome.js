@@ -1,12 +1,14 @@
 import React,{useState} from 'react'
 import DiaryCard from '../components/DiaryCard';
 import styles from './DiaryHome.module.css';
+import { connect } from 'react-redux'
+import { addCard } from '../Redux/diaryAction'
+import PropTypes from 'prop-types';
 
-function DiaryHome() {
+function DiaryHome(props) {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
-    const [cards, setCards] = useState([])
 
     const submit=()=>{
 
@@ -19,7 +21,7 @@ function DiaryHome() {
         }
 
         else{
-            setCards([{"title":title,"description":description},...cards])
+            props.addCard([{"title":title,"description":description},...props.cards])
             setTitle("")
             setDescription("")
         }
@@ -48,7 +50,7 @@ function DiaryHome() {
 
             <div>
                 <div className={styles.cardContainer}>
-                    {cards.map((card,index)=>{
+                    {props.cards.map((card,index)=>{
                         return(
                             <div key={index} className={styles.item}>
                                 <DiaryCard  title={card.title} subtitle="Kasun" description={card.description} bgColor="#b3e9fe"/>
@@ -62,4 +64,24 @@ function DiaryHome() {
     )
 }
 
-export default DiaryHome
+DiaryHome.propTypes = {
+    cards:PropTypes.object,
+    addCard:PropTypes.func
+  };
+
+const mapStateToProps = state => {
+    return {
+      cards: state.cards
+    }
+  }
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+        addCard: (cardDetails) => dispatch(addCard(cardDetails))
+    }
+  }
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(DiaryHome)
