@@ -1,4 +1,4 @@
-import {ADD_CARD} from "./diaryType"
+import {GET_CARDS} from "./diaryType"
 
 const initialState ={
     cards:[],
@@ -6,10 +6,10 @@ const initialState ={
 
 const diaryReducer = (state=initialState,action)=>{
     switch (action.type) {
-        case ADD_CARD:
+        case GET_CARDS:
             return{
                 ...state,
-                cards:[action.payload,...state.cards]
+                cards:action.payload
             }
         default:
             return state   

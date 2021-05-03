@@ -1,11 +1,16 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import DiaryCard from '../components/DiaryCard';
 import styles from './DiaryHome.module.css';
 import { connect } from 'react-redux'
-import { addCard } from '../Redux/diaryAction'
+import { addCard,getCards } from '../Redux/diaryAction'
 import PropTypes from 'prop-types';
 
 function DiaryHome(props) {
+
+    useEffect(() => {
+        console.log("Started")
+        props.getCards()
+    }, [])
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
@@ -29,8 +34,14 @@ function DiaryHome(props) {
     }
 
     return (
-        <div>
-            <h1>
+        <div className={styles.container}>
+            <div className={styles.headerDiv}>
+                <h3>
+                    header Not finished yet
+                </h3>  
+            </div>
+
+            <h1 style={{"color":"white"}}>
                 HOME
             </h1>
 
@@ -78,7 +89,8 @@ const mapStateToProps = state => {
   
   const mapDispatchToProps = dispatch => {
     return {
-        addCard: (cardDetails) => dispatch(addCard(cardDetails))
+        addCard: (cardDetails) => dispatch(addCard(cardDetails)),
+        getCards:()=>dispatch(getCards())
     }
   }
 

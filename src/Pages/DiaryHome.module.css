@@ -43,9 +43,29 @@ textarea{
     justify-content: center;
 }
 
+.container{
+    margin: 80px 20px 0px 20px;
+}
+
 .item{
     flex: 0 0 calc(100% - 0px);
 }
+
+.headerDiv{
+    color: white;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    height: 60px;
+    transition-duration: 5s;
+
+    background-image: url("https://i.pinimg.com/originals/0c/32/9e/0c329ea96dbf30e80bc09b7679a0d518.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    }
 
 @media only screen and (min-width: 600px) {
     .item{

@@ -5,14 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux'
-import {createStore} from "redux"
+import {createStore,applyMiddleware} from "redux"
 import reducer from "./Redux/diaryReducer"
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(reducer,composeWithDevTools())
+import createSagaMiddleware from 'redux-saga'
+import thunk from "redux-thunk"
+
+const sagaMiddleware = createSagaMiddleware()
+
+const store = createStore(reducer,composeWithDevTools(applyMiddleware(sagaMiddleware)))
 
 ReactDOM.render(
-  <Provider store={store}>
+<Provider store={store}>
   <App />
 </Provider>,
   document.getElementById('root')
