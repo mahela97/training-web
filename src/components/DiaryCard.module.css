@@ -2,10 +2,12 @@
     padding: 1rem;
     border-radius: 20px;
     margin: 10px;
+    overflow-wrap: break-word;
 }
 
 .title{
     font-size: 2rem;
+    
 }
 
 .subtitle{

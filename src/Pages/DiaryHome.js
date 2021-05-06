@@ -1,73 +1,98 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import DiaryCard from '../components/DiaryCard';
 import styles from './DiaryHome.module.css';
 import { connect } from 'react-redux'
 import { addCard,getCards } from '../Redux/diaryAction'
 import PropTypes from 'prop-types';
+import Collapse from '@material-ui/core/Collapse';
+import Header from '../components/Header';
+import { useHistory } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 function DiaryHome(props) {
-
-    useEffect(() => {
-        console.log("Started")
-        props.getCards()
-    }, [])
-
+    
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const [collapse, setCollapse] = useState(false)
+
+    const history = useHistory();
+    const node = useRef();
+
+    const handleClickOutside = (e) => {
+        if (node.current && node.current.contains(e.target)) {
+            setCollapse(true)
+          return;
+        }
+        setCollapse(false)
+      };
+
+    useEffect(() => {
+        props.getCards()
+        document.addEventListener('mousedown', handleClickOutside);
+        if(!localStorage.getItem("nickName")){
+            history.push("/")
+        }
+    })    
 
     const submit=()=>{
-
         if(!title){
             console.log("Missing title")
         }
-
         if(!description){
             console.log("Missing description")
         }
-
         else{
-            props.addCard({"title":title,"description":description})
+            props.addCard({"title":title,"description":description,"subtitle":localStorage.getItem("nickName")})
             setTitle("")
             setDescription("")
         }
-        
     }
 
     return (
         <div className={styles.container}>
+
             <div className={styles.headerDiv}>
-                <h3>
-                    header Not finished yet
-                </h3>  
+                <Header/>
             </div>
 
             <h1 style={{"color":"white"}}>
-                HOME
+                Home
             </h1>
 
-            <div style={{"marginTop":"10px"}} >
-                <input value={title} onChange={(e)=>{setTitle(e.target.value)}} placeholder="Submit New"></input>
-            </div>
-
-            <div style={{"marginTop":"10px"}}>
-                <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} rows="6" placeholder="Enter Description"></textarea>
-            </div> 
-
-            <div style={{"marginTop":"10px"}} onClick={submit} className={styles.button}>
-                <div>
-                    <h3>SUBMIT</h3>
+            <div>
+                <div style={{"marginTop":"10px"}} onClick={()=>setCollapse(true)} >
+                    <input value={title} onChange={(e)=>{setTitle(e.target.value)}} placeholder="Submit New"></input>
                 </div>
-            </div> 
+
+               
+                <Collapse ref={node} onMouseOver={()=>setCollapse(true)} in={collapse} timeout={1000}> 
+                    <div style={{"marginTop":"20px"}}>
+                        <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} rows="6" placeholder="Enter Description"></textarea>
+                    </div> 
+
+                    <div style={{"marginTop":"20px"}} onClick={submit} className={styles.submitButtom}>
+                        <div>
+                            <h3>SUBMIT</h3>
+                        </div>
+                    </div> 
+                </Collapse>
+                
+                
+            </div>
 
             <div>
                 <div className={styles.cardContainer}>
+                    <Grid justify="center" container spacing={0}>
                     {props.cards.map((card,index)=>{
                         return(
-                            <div key={index} className={styles.item}>
-                                <DiaryCard  title={card.title} subtitle="Kasun" description={card.description} bgColor="#b3e9fe"/>
-                            </div>
+                            <Grid key={index} item xs={12} sm={6} md={4} lg={3}>        
+                                    <DiaryCard  title={card.title} subtitle={card.subtitle} description={card.description} bgColor="#b3e9fe"/>
+                            </Grid>
                         )
                     })}
+                    </Grid>
                 </div>
             </div>
             
