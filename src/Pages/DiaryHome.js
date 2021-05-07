@@ -7,18 +7,16 @@ import PropTypes from 'prop-types';
 import Collapse from '@material-ui/core/Collapse';
 import Header from '../components/Header';
 import { useHistory } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 function DiaryHome(props) {
-    
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
-    const [collapse, setCollapse] = useState(false)
 
     const history = useHistory();
     const node = useRef();
+
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
+    const [collapse, setCollapse] = useState(false)
 
     const handleClickOutside = (e) => {
         if (node.current && node.current.contains(e.target)) {
@@ -38,9 +36,11 @@ function DiaryHome(props) {
 
     const submit=()=>{
         if(!title){
+            alert("Missing title")
             console.log("Missing title")
         }
         if(!description){
+            alert("Missing description")
             console.log("Missing description")
         }
         else{

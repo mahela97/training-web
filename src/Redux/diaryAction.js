@@ -8,7 +8,6 @@ export const addCard=(cardDetails)=>{
 }
 
 export const getCards=()=>{
-    console.log("Came here")
     return {
         type: REDUX_SAGA_GET_CARDS
     }

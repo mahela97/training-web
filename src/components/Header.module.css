@@ -17,18 +17,16 @@
 .searchComponent{
     position: relative;
     margin-right: 30px;
-
 }
 
 @media only screen and (max-width: 600px) {
     .searchComponent{
         display: none;
     }
-  }
+}
 
 .avatarDiv{
     display: flex;
     margin-right: 20px;
     align-items: center;
-
 }

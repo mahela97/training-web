@@ -34,9 +34,9 @@ function DiaryCard({title,subtitle,description,bgColor}) {
             </div>
 
             {description.length>10 &&
-            <div className={styles.showMore}>
-                {showMore?<div onClick={()=>setstate(false)}>SHOW LESS</div> : <div onClick={()=>setstate(true)}>SHOW MORE</div>}
-            </div>
+                <div className={styles.showMore}>
+                    {showMore?<div onClick={()=>setstate(false)}>SHOW LESS</div> : <div onClick={()=>setstate(true)}>SHOW MORE</div>}
+                </div>
             }
         
         </div>

@@ -10,12 +10,15 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Route exact path="/home">
-          <DiaryHome/>
+
+        <Route exact path="/home">
+            <DiaryHome/>
         </Route>
-      <Route exact path="/">
-          <SignIn/>
-      </Route>
+
+        <Route exact path="/">
+            <SignIn/>
+        </Route>
+        
       </Router>
     </div>
   );

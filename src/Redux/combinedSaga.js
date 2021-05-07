@@ -4,7 +4,6 @@ import { eventChannel } from 'redux-saga'
 import {REDUX_SAGA_ADD_CARD,REDUX_SAGA_GET_CARDS,GET_CARDS}  from "./diaryType"
 
 function watchForCardsChannel(){
-    console.log("getAuthChannel")
     return eventChannel(emit => {
         fb.firestore().collection("cards")
         .onSnapshot((querySnapshot) => {
@@ -21,7 +20,6 @@ function watchForCardsChannel(){
 }
 
 function* watchForCards() {
-    console.log("watchForFirebaseAuth")
     const channel = yield call(watchForCardsChannel);
     while (true){
         try{
