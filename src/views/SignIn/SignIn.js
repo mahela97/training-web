@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { useHistory } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
-import styles from './SignIn.module.css';
+import styles from './signIn.module.css';
 
 function SignIn() {
     let history = useHistory();
@@ -22,7 +22,7 @@ function SignIn() {
             history.push("/home")
             return
         }
-        alert("Input everthing")
+        alert("Input everything")
     }
 
     const random=()=>{
@@ -34,7 +34,7 @@ function SignIn() {
         <div className={styles.mainContainer}>
             <div className={styles.container}>
                 <div className={styles.imgContainer}>
-                    <img className={styles.img} src="/icon.png" alt="fsdfd"/>
+                    <img className={styles.img} src="/icon.png" alt="APP Icon"/>
                     <div>
                         <span style={{"color":"white",marginLeft:'15px'}}>Dear Diary</span>
                     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Header.module.css';
+import styles from './header.module.css';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { Avatar } from '@material-ui/core';

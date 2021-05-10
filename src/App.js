@@ -1,6 +1,6 @@
-import DiaryHome from './Pages/DiaryHome';
+import DiaryHome from './views/DiaryHome/DiaryHome';
 import React from 'react';
-import SignIn from './Pages/SignIn';
+import SignIn from './views/SignIn/SignIn';
 import {
   BrowserRouter as Router,
   Route,

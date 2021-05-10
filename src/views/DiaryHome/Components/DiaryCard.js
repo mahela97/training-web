@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import styles from './DiaryCard.module.css';
+import styles from './diaryCard.module.css';
 import PropTypes from 'prop-types';
 
 function DiaryCard({title,subtitle,description,bgColor}) {
